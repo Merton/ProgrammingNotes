@@ -8,7 +8,11 @@ CSS should always be as generic as posible, starting with a broad idea of what f
 2. a more specific selector takes precedence over a less specific one -ie, id's take priority over Classes
 3. rules that appear later in the code override earlier rules if both have the same specificity.
 4. A css rule with !important always takes precedence.
- 
+
+### Susy vs Flexbox
+Flexbox is CSS3's solution to creating flexible grid layouts, it is relatively new, and because of this, it means it is not perfectly supported. Therefore the alternative, is to use Susy, a grid layout engine for Sass.
+
+
 ## Twig
 
 ### Logical statements and Variables
