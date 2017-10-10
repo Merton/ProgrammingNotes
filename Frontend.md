@@ -1,4 +1,14 @@
 # Front-end Useful Notes on HTML, CSS, Javascript and tools like Sass, grunt, and twig.
+## CSS
+
+### Good practice
+CSS should always be as generic as posible, starting with a broad idea of what fonts, colours, sizing you want things to look like. Anything that then sits outside of those catagories can be defined more specifically.
+
+1. inline css ( html style attribute ) overrides css rules in style tag and css file
+2. a more specific selector takes precedence over a less specific one -ie, id's take priority over Classes
+3. rules that appear later in the code override earlier rules if both have the same specificity.
+4. A css rule with !important always takes precedence.
+ 
 ## Twig
 
 ### Logical statements and Variables
