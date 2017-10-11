@@ -46,6 +46,12 @@ This pushes the branch to the remote repository (origin) and the `-u` flag sets 
 
 *After this initial push, `git push` can just be used without any parameters.*
 
+If things get muddled and you're not sure if the right branches are being tracked, use the following command to display the list of what is being tracked for push and pull requests:
+```
+git remote show origin
+```
+
+
 ## Gitflow Workflow
 Gitflow Workflow defines a strict branch model of how different branches should interact with each other. 
 It states that `master` should never merge with feature branches. Instead, a `develop` branch should be used to dictate a *in progress* version of the product, and is the parent branch of all feature branches.
@@ -60,4 +66,4 @@ and those who are creating new features.
 
 **Maintenance Branches**
 
-Maintenance or *hotfix* branches are used to quickly patch bugs in the production version, and is the only type of branches that are allowed to fork off of `maaster`
+Maintenance or *hotfix* branches are used to quickly patch bugs in the production version, and is the only type of branches that are allowed to fork off of `master`
