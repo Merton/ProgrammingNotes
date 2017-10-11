@@ -30,3 +30,33 @@ cd name-of-project
 npm install
 npm run dev
 ```
+
+## Setting up django and Vue to work together
+Set up Django API, and run it using `python manage.py runserver`
+Set up Vue environment inside Django project.
+The vue app will make ajax calls on the django API, using the package vue-axios. 
+```
+loadPubs: function () {
+      this.status = 'Loading...'
+      var vm = this;
+      axios.get('http://127.0.0.1:8000/api/pubs/')
+      .then(function (response) {
+        console.log(response.data);
+        vm.pubs = response.data;
+      })
+```
+However, this will be rejected as the ajax call doesn't contain a verification token (CSRF) because of local development.
+To get around this, use the package django-cors-headers for Django.
+
+https://github.com/ottoyiu/django-cors-headers 
+
+Add `corsheaders` to the list of Installed Apps in your django settings.py file.
+
+Then, create this section (adapt the whitelisted addresses as you need):
+```
+CORS_ORIGIN_WHITELIST = (
+    'localhost:8080',
+    '127.0.0.1:8080'
+)
+```
+Vues default port is 8080, so this says dont require verification from that port.
