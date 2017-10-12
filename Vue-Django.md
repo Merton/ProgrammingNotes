@@ -42,10 +42,13 @@ loadPubs: function () {
       axios.get('http://127.0.0.1:8000/api/pubs/')
       .then(function (response) {
         console.log(response.data);
-        vm.pubs = response.data;
+        vm.'data_object' = response.data;
       })
 ```
-However, this will be rejected as the ajax call doesn't contain a verification token (CSRF) because of local development.
+
+(**N.B** If in the future you want to extend what is defined in 'data_object' you need to be more specific when you assign the response.data field.)
+
+However, this will be rejected as the ajax call doesn't contain a verification token (CSRF) because it's running in your local environment.
 To get around this, use the package django-cors-headers for Django.
 
 https://github.com/ottoyiu/django-cors-headers 
