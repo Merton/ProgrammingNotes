@@ -1,4 +1,29 @@
 # Git Tips and Tricks
+**Useful Commands**
+
+To create a new local branch:
+```
+git checkout -b feature/winners-page parent-branch
+```
+To add this local branch to the centralised repository (origin):
+```
+git push -u origin feature/winners-page
+``` 
+This pushes the branch to the remote repository (origin) and the `-u` flag sets it as a remote tracking branch.
+
+*After this initial push, `git push` can just be used without any parameters.*
+
+
+If you wish to create a new local branch and for it to track an exisiting branch on the repository, use:
+```
+git checkout -b <my_new_branch> <remote>/<branch_name>
+```
+ie `git checkout -b develop origin/develop` will create a local branch called develop, and will track the upstream branch develop on the origin.
+
+If things get muddled and you're not sure if the right branches are being tracked, use the following command to display the list of what is being tracked for push and pull requests:
+```
+git remote show origin
+```
 
 ## Git workflow
 
@@ -32,24 +57,7 @@ If you need to stop the rebase, the command `git rebase --abort` will revert you
 Feature branches should have descriptive names, like `feature/winners-page` or `issue-#1011`.
 
 
-**Useful Commands**
 
-To create a new local branch:
-```
-git checkout -b feature/winners-page parent-branch
-```
-To add this local branch to the centralised repository (origin):
-```
-git push -u origin feature/winners-page
-``` 
-This pushes the branch to the remote repository (origin) and the `-u` flag sets it as a remote tracking branch.
-
-*After this initial push, `git push` can just be used without any parameters.*
-
-If things get muddled and you're not sure if the right branches are being tracked, use the following command to display the list of what is being tracked for push and pull requests:
-```
-git remote show origin
-```
 
 
 ## Gitflow Workflow
