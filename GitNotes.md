@@ -1,5 +1,6 @@
 # Git Tips and Tricks
-**Useful Commands**
+## Useful Commands ##
+**Creating & tracking branches**
 
 To create a new local branch:
 ```
@@ -23,6 +24,16 @@ ie `git checkout -b develop origin/develop` will create a local branch called de
 If things get muddled and you're not sure if the right branches are being tracked, use the following command to display the list of what is being tracked for push and pull requests:
 ```
 git remote show origin
+```
+**Deleting branches**
+
+You can delete a remote branch with:
+```
+git push -d <remote_name> <branch_name>
+```
+and to delete a local branch use:
+```
+git branch -d <branch_name>
 ```
 
 ## Git workflow
