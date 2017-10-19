@@ -12,7 +12,7 @@ git push -u origin feature/winners-page
 ``` 
 This pushes the branch to the remote repository (origin) and the `-u` flag sets it as a remote tracking branch.
 
-*After this initial push, `git push` can just be used without any parameters.*
+*After this initial push, `git push` can be used without any parameters.*
 
 
 If you wish to create a new local branch and for it to track an exisiting branch on the repository, use:
