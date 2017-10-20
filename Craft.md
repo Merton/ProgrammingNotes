@@ -10,11 +10,11 @@
     - Now click on the database, then on the import tab, upload your .sql file (files that are too large will need to be zipped) and click go.
     - Open the db file at Craft/config/db.php and put the following (If you got this from a repository this step can be skipped):
     ```
-        'server' => 'localhost',
-  		'port' => '8889',
-  		'user' => 'your sql username here',
-  		'password' => 'your sql username here',
-  		'database' => 'the name of the database you created',
+    'server' => 'localhost',
+  	'port' => '8889',
+  	'user' => 'your sql username here',
+  	'password' => 'your sql username here',
+  	'database' => 'the name of the database you created',
     ```
  4. Add localhost to your hosts file at etc/hosts
     ```
