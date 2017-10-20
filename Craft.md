@@ -5,12 +5,12 @@
 2. Install & run MAMP, and change the document root to the public folder inside the repo you just cloned. ( ie. Documents/myproject/public)
 3. Connect to a Database
     - Go to `http://localhost:8888/phpMyAdmin`
-    - Click new on the left handside, and name your db.
+    - Click 'new' on the left handside, and name your db.
     - Change the Collation to `utf8_general_ci`
-    - Click on the database, then the import tab, and upload your .sql file (files that are too large need to be zipped) and click go
-    - Open the db file at Craft/config/db.php and put the following:
+    - Now click on the database, then on the import tab, upload your .sql file (files that are too large will need to be zipped) and click go.
+    - Open the db file at Craft/config/db.php and put the following (If you got this from a repository this step can be skipped):
     ```
-      'server' => 'localhost',
+        'server' => 'localhost',
   		'port' => '8889',
   		'user' => 'your sql username here',
   		'password' => 'your sql username here',
@@ -18,8 +18,8 @@
     ```
  4. Add localhost to your hosts file at etc/hosts
     ```
-      127.0.0.1       localhost .        <--- add this line to your file
-      127.0.0.1       npec.craft.dev     <--- You can also add alias' for urls to redirect to 127.0.0.1
+      127.0.0.1       localhost                 <--- add this line to your file
+      127.0.0.1       coolAliasforWebsite       <--- You can also add alias' for urls to redirect to 127.0.0.1
     ```
 ## Caching/Serializer error
 Sometimes, deleting the entire cache folder in `Craft/Storage/runtime/` can solve the issue. 
@@ -50,17 +50,18 @@ slave_master_info
 slave_relay_log_info
 slave_worker_info
 ```
-If you see the error stating that the table's do not exist, then do the following:
+If you see an error stating that the table's do not exist, then do the following:
+
 1. Log into your MySQL server (`Applications/MAMP/Library/bin/mysql -u root -p`), and delete the tables listed above by running: 
 ```
 DROP TABLE innodb_index_stats,
 innodb_table_stats,
 slave_master_info,
 slave_relay_log_info,
-slave_worker_info 
+slave_worker_info;
 ```
 2. Goto `Applications/MAMP/db/mysqlxx/mysql`, and delete the `*.frm` and `*.ibd` files for the 5 tables above.
-3. Run the following SQL script in MySQL:
+3. Now run the following SQL script in MySQL to recreate these tables:
 ```
 CREATE TABLE `innodb_index_stats` (
   `database_name` varchar(64) COLLATE utf8_bin NOT NULL,
