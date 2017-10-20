@@ -21,6 +21,7 @@
       127.0.0.1       localhost                 <--- add this line to your file
       127.0.0.1       coolAliasforWebsite       <--- You can also add alias' for urls to redirect to 127.0.0.1
     ```
+ 5. Go to `../craft/public` in the terminal and run `npm install`, this will install the all the dependencies for the project.
 # Fun Errors
 ## Caching/Serializer error
 Sometimes, deleting the entire cache folder in `Craft/Storage/runtime/` can solve the issue. 
