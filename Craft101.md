@@ -26,7 +26,8 @@
  6. Enter the command `grunt` into the terminal and it will minify and run the code. 
  
 (**Side note**, if you recieve error that the grunt command is not found, run `sudo npm install -g grunt-cli`, this will install the command line interface for grunt. Now retry.)
- 7. localhost:3000 should have been opened (by grunt) in your browser , and you should see the site!
+
+7. localhost:3000 should have been opened (by grunt) in your browser , and you should see the site!
 
 # Fun Errors
 ## Caching/Serializer error
