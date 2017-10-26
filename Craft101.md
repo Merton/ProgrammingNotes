@@ -2,7 +2,7 @@
 ## Setting up craft CMS
 
 1. Download repository from Github/Bitbucket etc or the craft files from the craft website if you're starting from scratch.
-2. Install & run MAMP, and change the document root to the public folder inside the repo you just cloned. ( ie. Documents/myproject/public)
+2. Install & run MAMP,  change the document root in preferences to the public folder inside the craft repo you just cloned ( ie. Documents/mycraftproject/public).
 3. Connect to a Database
     - Go to `http://localhost:8888/phpMyAdmin`
     - Click 'new' on the left handside, and name your db.
@@ -16,12 +16,18 @@
   	'password' => 'your sql username here',
   	'database' => 'the name of the database you created',
     ```
+    **NOTE:** MAMP automatically creates a mySQL user called `root` with a password of `root`.
  4. Add localhost to your hosts file at etc/hosts
     ```
       127.0.0.1       localhost                 <--- add this line to your file
       127.0.0.1       coolAliasforWebsite       <--- You can also add alias' for urls to redirect to 127.0.0.1
     ```
  5. Go to `../craft/public` in the terminal and run `npm install`, this will install the all the dependencies for the project.
+ 6. Enter the command `grunt` into the terminal and it will minify and run the code. 
+ 
+(**Side note**, if you recieve error that the grunt command is not found, run `sudo npm install -g grunt-cli`, this will install the command line interface for grunt. Now retry.)
+ 7. localhost:3000 should have been opened (by grunt) in your browser , and you should see the site!
+
 # Fun Errors
 ## Caching/Serializer error
 Sometimes, deleting the entire cache folder in `Craft/Storage/runtime/` can solve the issue. 
