@@ -1,4 +1,18 @@
-# Vue and Django
+# Django & Vue
+## Django
+
+**Useful Commands**
+
+Set up a new project & structure
+```
+django-admin startproject mysite
+```
+
+Creating new apps
+```
+python manage.py startapp name_of_new_app
+```
+
 ## Vue
 
 use `npm install vue-cli` to install the command line interface for vue, which is useful for setting up what 
