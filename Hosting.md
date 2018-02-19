@@ -2,8 +2,11 @@
 ### LAMP Stack
 
 Linux: Ubuntu v16.04.3 LTS
+
 Apache: v2.4.29
+
 MySQL: v5.6
+
 PHP: v5.6
 
 a2dismod [service]
@@ -13,13 +16,14 @@ a3dissite [site]
 
 
 ## Downgrade MySQL Version
+By default Ubuntu installs MySQL v5.7, if incase you need to use a previous version (v5.6) then follow these instructions:
 
 To find all packages installed:
 ```
 dpkg -l | grep mysql
 ```
 
-This will produce a list like this: 
+This will produce a list like this (Note, this is with MySQL version 5.6 runnning, the versions may differ on your machine): 
 ```
 ii  libdbd-mysql-perl             4.033-1ubuntu0.1                           amd64        Perl5 database interface to the MySQL database
 ii  libmysqlclient20:amd64        5.7.21-0ubuntu0.16.04.1                    amd64        MySQL database client library
