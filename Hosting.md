@@ -45,3 +45,5 @@ sudo apt-get autoclean
 `sudo rm -rf /etc/mysql`
 `sudo rm -rf /var/lib/mysql/
 `
+`which mysql
+mysql --version`
