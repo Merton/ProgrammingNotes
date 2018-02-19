@@ -10,3 +10,38 @@ a2dismod [service]
 a2enmod [service]
 a2ensite [site]
 a3dissite [site]
+
+
+## Downgrade MySQL Version
+
+To find all packages installed:
+```
+dpkg -l | grep mysql
+```
+
+This will produce a list like this: 
+```
+ii  libdbd-mysql-perl             4.033-1ubuntu0.1                           amd64        Perl5 database interface to the MySQL database
+ii  libmysqlclient20:amd64        5.7.21-0ubuntu0.16.04.1                    amd64        MySQL database client library
+ii  mysql-client-5.6              5.6.16-1~exp1                              amd64        MySQL database client binaries
+ii  mysql-client-core-5.6         5.6.16-1~exp1                              amd64        MySQL database core client binaries
+ii  mysql-common                  5.7.21-0ubuntu0.16.04.1                    all          MySQL database common files, e.g. /etc/mysql/my.cnf
+ii  mysql-server-5.6              5.6.16-1~exp1                              amd64        MySQL database server binaries and system database setup
+ii  mysql-server-core-5.6         5.6.16-1~exp1                              amd64        MySQL database server binaries
+ii  php5.6-mysql                  5.6.33-3+ubuntu16.04.1+deb.sury.org+1      amd64        MySQL module for PHP
+```
+
+Systematically remove every package of the mysql package:
+`sudo dpkg --purge mysql # then press tab to autocomplete`
+
+Then, run these to ensure that the packages have been removed:
+```
+sudo apt-get --purge remove mysql-server
+sudo apt-get --purge remove mysql-client
+sudo apt-get --purge remove mysql-common
+sudo apt-get autoremove
+sudo apt-get autoclean
+```
+`sudo rm -rf /etc/mysql`
+`sudo rm -rf /var/lib/mysql/
+`
