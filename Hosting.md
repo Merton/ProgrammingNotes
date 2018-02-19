@@ -32,7 +32,7 @@ ii  php5.6-mysql                  5.6.33-3+ubuntu16.04.1+deb.sury.org+1      amd
 ```
 
 Systematically remove every package of the mysql package:
-`sudo dpkg --purge mysql # then press tab to autocomplete`
+`sudo dpkg --purge <package_name>`
 
 Then, run these to ensure that the packages have been removed:
 ```
@@ -42,8 +42,22 @@ sudo apt-get --purge remove mysql-common
 sudo apt-get autoremove
 sudo apt-get autoclean
 ```
-`sudo rm -rf /etc/mysql`
-`sudo rm -rf /var/lib/mysql/
-`
-`which mysql
-mysql --version`
+
+Remove MySQL data: `sudo rm -rf /etc/mysql`
+
+Remove MySQL library`sudo rm -rf /var/lib/mysql/`
+
+Use `which mysql` & `mysql --version`
+
+Now you can install the MySQL version of your choice, to install older versions you will need to add the archive repository: 
+
+```
+sudo add-apt-repository 'deb http://archive.ubuntu.com/ubuntu trusty universe'
+```
+Then install the MySQL packages:
+```
+sudo apt-get update
+sudo apt install mysql-server-5.6
+sudo apt install mysql-client-5.6
+```
+
