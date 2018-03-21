@@ -1,3 +1,45 @@
+# System Administrator Tools
+### Performance
+`top` - The "task manager" for a server, shows all processes and CPU, MEMORY usage. Use `htop` for a more intuitive version. 
+
+`htop` - A more user friendly version of `top` 
+
+`free` - Shows the amount of memory used, free cached etc. Use the `-m` flag to show memory in megabytes.
+
+### IP & Ports, and Network Traffic
+`ss -t -a` - Displays all sockets that are currently in use, and being listened on.
+
+`nmap -A localhost` - Scans the whole server checking which ports are being listened too, the network status, apache status and is a good general indication of the status of your TCP/IP connections. This can be done to a remote server by running it on your local machine and replacing `localhost` with the servers IP.
+
+`sudo iptraf` - Shows all the active connections, and requests for the server.
+
+`dstat` - Shows the read/write states of the server
+
+### System Info 
+`df` - Displays the disk space and utilisation of the disk on the server. Use the `-h` to display a more human readable format.
+If the results show that there is free space, but you are still having storage issues, use the `-hTi` flag to display the inode space - which can become full and cause issues before the physical storage is full.
+
+`du` - Shows the filesizes of every file in a given directory. A good usecase for this is to check the sizes in a particular directory, by adding this: `-sch /var/*` it will display the amount of storage used per directory in the var directory.
+
+### Logs 
+`/var/log/` contains the majority of every logging file from different services.
+
+When in this directory, there are some useful and important log files:
+
+`tail syslog` - The system log file, this is useful for seeing what changes have occured and for troubleshooting purposes.
+
+`tail ufw.log` - Will show the Firewalls recent actions, a lot of [UFW BLOCK]'s here indicate that your firewall is working!
+
+`tail fail2ban.log` - Displays fail2bans history of banning potentially malicious IPs
+
+`tail auth.log` - Shows the login attempts (useful for spotting a potential breach)
+
+`tail mysql/error.log` - MySQL log file
+
+`tail apache2/access.log` && `tail apache2/error.log` for apache's access and error logs.
+
+
+
 # Ubuntu Server setup
 ### LAMP Stack
 
