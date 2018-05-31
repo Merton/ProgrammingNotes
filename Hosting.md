@@ -39,6 +39,37 @@ When in this directory, there are some useful and important log files:
 `tail apache2/access.log` && `tail apache2/error.log` for apache's access and error logs.
 
 
+## SSH & Git
+### SSH Config
+An SSH Config can be used to create alias' and to specify extra ssh params.
+Create, or edit it at `~/.ssh/config` (If it does not exist, create it)
+
+```
+Host <name-of-host-alias>
+  HostName <ip-address-of-host>
+  User <your-host-username-here>
+  ForwardAgent yes   // Enable SSH permissions to be carried through to server
+```
+
+`ssh -T git@bitbucket.org` and `ssh -vT git@bitbucket.org` are useful checks to see if you have the correct permissions, these can be ran either on the server or on your local machine.
+
+### Git Using SSH
+You can view the config for a repo by typing `git config -l`
+The line `remote.origin.url` indicates the location git will go to to push/pull changes.
+
+This can be set to use ssh, running the git command `git remote set-url origin git@bitbucket.com:USERNAME/REPOSITORY.git`.
+
+You will also need to specify the permissions of the cloned repo to allow the users full access. (Where foo is your user group)
+```
+chgrp -R foo repodir                 # set the group
+chmod -R g+rw repodir                # allow the group to read/write
+chmod g+s `find repodir -type d`     # new files get group id of directory
+git init --shared=all repodir        # sets some important variables in repodir/config ("core.sharedRepository=2")
+```
+
+Mac users will often find that there SSH key gets forgotten on reboot, running `ssh-add -k path/to/privkey` will resolve this.
+
+Also, on the server, the user needs to own the `.ssh` directory, so it is not owned by root.
 
 # Ubuntu Server setup
 ### LAMP Stack
