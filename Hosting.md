@@ -53,11 +53,14 @@ Host <name-of-host-alias>
 
 `ssh -T git@bitbucket.org` and `ssh -vT git@bitbucket.org` are useful checks to see if you have the correct permissions, these can be ran either on the server or on your local machine.
 
-### Git Using SSH
+### Git
 You can view the config for a repo by typing `git config -l`
+
 The line `remote.origin.url` indicates the location git will go to to push/pull changes.
 
 This can be set to use ssh, running the git command `git remote set-url origin git@bitbucket.com:USERNAME/REPOSITORY.git`.
+
+If you want to change it to https, or change the user account associated with it, use `git remote set-url origin https://USERNAME@bitbucket.org/ORGANISATION/REPOSITORY.git`
 
 You will also need to specify the permissions of the cloned repo to allow the users full access. (Where foo is your user group)
 ```
